@@ -1,55 +1,108 @@
 name: Update WoW KR Auction Prices
 
 on:
-  # 직접 실행 버튼
+  # 직접 실행
   workflow_dispatch:
 
-  # 약 5분마다 자동 실행
+  # 약 5분마다 자동 확인
   schedule:
     - cron: "2/5 * * * *"
 
-# GitHub Pages 배포에 필요한 권한
+
+# ==========================================
+# 권한
+# ==========================================
+
 permissions:
-  contents: read
+
+  # prices.json을 저장소에 커밋하기 위해 write 필요
+  contents: write
+
+  # GitHub Pages 배포
   pages: write
   id-token: write
 
-# 이전 배포가 아직 진행 중이면 새 배포를 우선
+
+# 동시에 여러 번 실행되는 것 방지
 concurrency:
-  group: github-pages
+  group: wow-kr-auction-update
   cancel-in-progress: true
+
 
 jobs:
 
   # ========================================
-  # 1. TUE 가격 가져오기 + Pages 파일 생성
+  # 가격 조회 + 저장소 업데이트 + Pages 준비
   # ========================================
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
 
-      # 저장소 파일 가져오기
+      # 저장소 가져오기
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          ref: main
 
-      # Python 설치
+
+      # Python 준비
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
-      # update.py 실행
+
+      # TUE KR 가격 가져오기
       - name: Get TUE KR prices
         env:
           TUE_API_KEY: ${{ secrets.TUE_API_KEY }}
+
         run: python update.py
 
-      # GitHub Pages 설정
+
+      # ====================================
+      # prices.json 저장소에 자동 커밋
+      # ====================================
+
+      - name: Commit prices.json
+
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add prices.json
+
+          if git diff --cached --quiet; then
+
+            echo "가격 데이터 변경 없음"
+            echo "커밋하지 않습니다."
+
+          else
+
+            echo "가격 데이터 변경 감지"
+
+            git commit \
+              -m "Update TUE KR auction prices"
+
+            git push origin HEAD:main
+
+          fi
+
+
+      # ====================================
+      # GitHub Pages
+      # ====================================
+
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
-      # update.py가 만든 _site 폴더 업로드
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -57,19 +110,25 @@ jobs:
 
 
   # ========================================
-  # 2. GitHub Pages 실제 배포
+  # Pages 배포
   # ========================================
+
   deploy:
+
     needs: build
 
     runs-on: ubuntu-latest
 
     environment:
+
       name: github-pages
+
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
 
       - name: Deploy GitHub Pages
+
         id: deployment
+
         uses: actions/deploy-pages@v5

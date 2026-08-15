@@ -425,5 +425,12 @@
       "tueLastUpdated": "2026-08-15T15:16:41Z",
       "tueLastSeen": "2026-08-15T15:16:24Z"
     }
+  },
+  "wowToken": {
+    "region": "KR",
+    "game": "retail",
+    "priceGold": 298298,
+    "updatedAt": "2026-08-15T16:03:52+00:00",
+    "source": "wowtoken.app (Blizzard API)"
   }
 }

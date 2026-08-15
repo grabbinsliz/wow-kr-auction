@@ -1,5 +1,6 @@
 import os
 import json
+import gzip
 import urllib.request
 import urllib.error
 import statistics
@@ -48,7 +49,10 @@ ITEMS = [
 def get_json(url, headers=None):
     req = urllib.request.Request(url, headers=headers or {"Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+        raw = response.read()
+        if response.headers.get("Content-Encoding", "").lower() == "gzip":
+            raw = gzip.decompress(raw)
+        return json.loads(raw.decode("utf-8"))
 
 
 def tue_get(url):

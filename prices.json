@@ -429,8 +429,8 @@
   "wowToken": {
     "region": "KR",
     "game": "retail",
-    "priceGold": 240605,
-    "updatedAt": "2026-08-19T20:14:28+00:00",
+    "priceGold": 242733,
+    "updatedAt": "2026-08-19T22:35:30+00:00",
     "source": "wowtoken.app (Blizzard API)"
   }
 }

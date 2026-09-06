@@ -429,8 +429,9 @@
   "wowToken": {
     "region": "KR",
     "game": "retail",
-    "priceGold": 272369,
-    "updatedAt": "2026-09-06T11:29:30+00:00",
-    "source": "wowtoken.app (Blizzard API)"
+    "priceGold": null,
+    "updatedAt": null,
+    "source": "wowtoken.app (Blizzard API)",
+    "error": "<urlopen error [Errno 104] Connection reset by peer>"
   }
 }

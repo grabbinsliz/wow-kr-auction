@@ -1,7 +1,7 @@
 {
   "source": "The Undermine Exchange",
   "region": "KR",
-  "latestTUEUpdate": "2026-09-06T14:27:53Z",
+  "latestTUEUpdate": "2026-09-06T15:27:56Z",
   "categories": {
     "herb": [
       236761,
@@ -398,32 +398,32 @@
       "itemId": 274777,
       "category": "season2",
       "quality": null,
-      "currentGold": 6.69,
-      "quantity": 6936,
+      "currentGold": 8.09,
+      "quantity": 6551,
       "median24hGold": 6.745,
       "median7dGold": 9.94,
-      "median14dGold": 10.755,
-      "vs24hPct": -0.82,
-      "vs7dPct": -32.7,
-      "vs14dPct": -37.8,
-      "tueLastUpdated": "2026-09-06T14:27:53Z",
-      "tueLastSeen": "2026-09-06T14:27:35Z"
+      "median14dGold": 10.69,
+      "vs24hPct": 19.94,
+      "vs7dPct": -18.61,
+      "vs14dPct": -24.32,
+      "tueLastUpdated": "2026-09-06T15:27:56Z",
+      "tueLastSeen": "2026-09-06T15:27:35Z"
     },
     "274781": {
       "name": "Cursebound Globe",
       "itemId": 274781,
       "category": "season2",
       "quality": null,
-      "currentGold": 52.2,
-      "quantity": 8543,
-      "median24hGold": 52.33,
+      "currentGold": 52.23,
+      "quantity": 9838,
+      "median24hGold": 52.28,
       "median7dGold": 53.725,
       "median14dGold": 54.49,
-      "vs24hPct": -0.25,
-      "vs7dPct": -2.84,
-      "vs14dPct": -4.2,
-      "tueLastUpdated": "2026-09-06T14:27:53Z",
-      "tueLastSeen": "2026-09-06T14:27:35Z"
+      "vs24hPct": -0.1,
+      "vs7dPct": -2.78,
+      "vs14dPct": -4.15,
+      "tueLastUpdated": "2026-09-06T15:27:56Z",
+      "tueLastSeen": "2026-09-06T15:27:35Z"
     }
   },
   "wowToken": {

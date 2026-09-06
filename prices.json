@@ -46,16 +46,16 @@
       "itemId": 236761,
       "category": "herb",
       "quality": 1,
-      "currentGold": 6.0,
-      "quantity": 32506,
+      "currentGold": 5.97,
+      "quantity": 37226,
       "median24hGold": 5.79,
-      "median7dGold": 5.985,
+      "median7dGold": 5.98,
       "median14dGold": 6.045,
-      "vs24hPct": 3.63,
-      "vs7dPct": 0.25,
-      "vs14dPct": -0.74,
-      "tueLastUpdated": "2026-09-06T16:27:53Z",
-      "tueLastSeen": "2026-09-06T16:27:35Z"
+      "vs24hPct": 3.11,
+      "vs7dPct": -0.17,
+      "vs14dPct": -1.24,
+      "tueLastUpdated": "2026-09-06T17:27:53Z",
+      "tueLastSeen": "2026-09-06T17:27:39Z"
     },
     "236767": {
       "name": "Tranquility Bloom",
@@ -429,8 +429,8 @@
   "wowToken": {
     "region": "KR",
     "game": "retail",
-    "priceGold": 290751,
-    "updatedAt": "2026-09-06T17:09:30+00:00",
+    "priceGold": 291697,
+    "updatedAt": "2026-09-06T17:29:30+00:00",
     "source": "wowtoken.app (Blizzard API)"
   }
 }
